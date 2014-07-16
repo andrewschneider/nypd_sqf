@@ -2,9 +2,9 @@
 
 Visualizing nypd stop and frisks made in 2012.
 
-[thatplaybyplay.com/wheres_the_bus_stop/](http://thatplaybyplay.com/wheres_the_bus_stop/ "Where's the Bus Stop?")
+[thatplaybyplay.com/stop_and_frisk/](http://thatplaybyplay.com/stop_and_frisk/ "SQF Data Visualization")
 
-## Setup
+#### Setup
 
 Create and activate your virtual environment:
 ```
