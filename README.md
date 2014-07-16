@@ -1,6 +1,4 @@
-### nypd_sqf
-
-Visualizing nypd stop and frisks made in 2012.
+#### Visualizing nypd stop and frisks made in 2012.
 
 [thatplaybyplay.com/stop_and_frisk/](http://thatplaybyplay.com/stop_and_frisk/ "SQF Data Visualization")
 
