@@ -1,6 +1,6 @@
 #### Visualizing nypd stop and frisks made in 2012.
 
-[andrewschneider.io/stop_and_frisk/](http://andrewschneider.io/stop_and_frisk/ "SQF Data Visualization")
+[andrewschneider.io/nypd_sqf/](http://andrewschneider.io/nypd_sqf/ "SQF Data Visualization")
 
 #### Setup
 
@@ -12,7 +12,7 @@ source env/bin/activate
 
 Install openpyxl:
 ```
-pip install openpyxl
+pip install -r requirements.txt
 ```
 
 Download the stop and frisk data:

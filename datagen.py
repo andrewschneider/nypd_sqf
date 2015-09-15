@@ -11,12 +11,21 @@ from cd_data import INCOME_BY_CD
 from data_districts import DATA_DISTRICTS
 
 OUTPUT_FPATH = "./output.json"
-TMP_CSV_FPATH = "output_demo_data.xlsx"
+TMP_CSV_FPATH = "/tmp/output_demo_data.xlsx"
 CENSUS_DATA_URL = "http://www.nyc.gov/html/dcp/download/census/census2010/t_sf1_dp_cd.xlsx"
 SHEET_NAME = "CD Profiles"
-SQF_FPATH = "./SQF 2012.csv"
+SQF_FPATH = "./2012.csv"
 
 CD_ID_MAP = {"Manhattan": 100, "Bronx": 200, "Brooklyn": 300, "Queens": 400, "StatenIsland": 500}
+
+ARREST_IDX = 14
+FRISKED_IDX = 22
+SEARCHED_IDX = 23
+WEAPON_IDX_START = 26
+WEAPON_IDX_END = 31
+CONTRABAND_IDX = 24
+FORCE_IDX_START = 32
+FORCE_IDX_END = 40
 
 def extract_demographics():
     vals = collections.defaultdict(dict)
@@ -28,8 +37,8 @@ def extract_demographics():
 
     wb = load_workbook(TMP_CSV_FPATH)
     sheet = wb.get_sheet_by_name(SHEET_NAME)
-    max_row = sheet.get_highest_row()
-    max_col = min(sheet.get_highest_column(), 20)
+    max_row = sheet.max_row
+    max_col = min(sheet.max_column, 20)
 
     boro, dist_num = None, None
 
@@ -63,12 +72,12 @@ def load_stop_data():
         next(csvreader, None)
         for row in csvreader:
             precinct = int(row[1])
-            arrest = bool(int(row[25]))
-            frisk = bool(int(row[16]))
-            search = bool(int(row[17]))
-            weapon = any([bool(int(row[i])) for i in xrange(19,25)]) 
-            contra = bool(int(row[18]))
-            force = any([bool(int(row[i])) for i in xrange(33,42)])
+            arrest = row[ARREST_IDX] == 'Y'
+            frisk = row[FRISKED_IDX] == 'Y'
+            search = row[SEARCHED_IDX] == 'Y'
+            weapon = any([row[i] == 'Y' for i in xrange(WEAPON_IDX_START, WEAPON_IDX_END)]) 
+            contra = row[CONTRABAND_IDX] == 'Y'
+            force = any([row[i] == 'Y' for i in xrange(FORCE_IDX_START, FORCE_IDX_END)])
 
             if precinct not in stop_data_by_precinct:
                 stop_data_by_precinct[precinct] = collections.defaultdict(int)

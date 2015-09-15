@@ -1,0 +1,22 @@
+#container {
+    padding-left: 12.5%;
+    padding-right: 12.5%;
+    width: 75%;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axisselector {
+  padding-top: 10px; 
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
