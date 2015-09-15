@@ -1,6 +1,6 @@
 #### Visualizing nypd stop and frisks made in 2012.
 
-[thatplaybyplay.com/stop_and_frisk/](http://thatplaybyplay.com/stop_and_frisk/ "SQF Data Visualization")
+[andrewschneider.io/stop_and_frisk/](http://andrewschneider.io/stop_and_frisk/ "SQF Data Visualization")
 
 #### Setup
 
@@ -17,8 +17,8 @@ pip install openpyxl
 
 Download the stop and frisk data:
 ```
-curl -O http://www.nyclu.org/files/stopandfrisk/Stop-and-Frisk-2012.zip
-unzip Stop-and-Frisk-2012.zip
+curl -O http://www.nyc.gov/html/nypd/downloads/zip/analysis_and_planning/2012_sqf_csv.zip
+unzip 2012_sqf_csv.zip
 ```
 
 Generate the final dataset:
